@@ -10,11 +10,12 @@ export default function MainImage({ value }: Props): ReactElement {
   const { altText = '', fileName = '' } = value.leadImage.asset;
   const src = `${CONTENT_BASE_URL}${value.leadImage.url}`
   return (
-    <StyledImage src={src} alt={altText || fileName} />
+    <StyledImage data-test-id="main-image" src={src} alt={altText || fileName} />
   )
 }
 
 const StyledImage = styled.img.attrs(props => ({
+  ...props,
   alt: props.alt,
   src: props.src,
 }))`
