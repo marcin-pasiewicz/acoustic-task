@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContent } from './actions';
+import { NoData } from './components/NoData/NoData'
+import { getContentData, getContentError, isFetchingContent } from './selectors/content';
+import Elements from './components/Elements/Elements';
+import Loader from './components/Loader/Loader';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
-function App() {
+export const App: React.FC = () => {
+  const dispatch = useDispatch();
+  const content = useSelector(getContentData);
+  const error = useSelector(getContentError);
+  const isFetching = useSelector(isFetchingContent);
+  const { elements = [] } = content;
+
+  useEffect(() => {
+    dispatch(fetchContent('fa9519d5-0363-4b8d-8e1f-627d802c08a8'))
+  }, [dispatch])
+
+  if (error) {
+    return <NoData text="Ooops. That is not good" />
+  }
+
+  if (isFetching) {
+    return <Loader />
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary>
+      <Elements elements={elements}/>
+    </ErrorBoundary>
   );
 }
-
-export default App;

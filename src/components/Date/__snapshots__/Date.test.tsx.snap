@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Date/> renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    December 13th 2019, 6:00:00 pm
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainImager/> renders correctly 1`] = `
+<DocumentFragment>
+  <img
+    alt="altText"
+    class="sc-AxjAm bReqtd"
+    src="https://content-eu-4.content-cms.com/some url"
+  />
+</DocumentFragment>
+`;
