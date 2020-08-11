@@ -51,6 +51,14 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## Available Scripts
+
+You can run app with Docker using commands:  
+
+### `docker build . -t app`
+
+### `docker run -p 9000:9000 app`
+
 ## Solution architecture
 
 I have decided to use React, TypeScript, Redux, Rxjs and Styped-components as good starting point for creating modern production grade application. Project was bootstrapped Create React App which I think is high quality setup. My main goal was solving given tasks by developing modular and configurable application.
