@@ -6,13 +6,14 @@ import { getContentData, getContentError, isFetchingContent } from './selectors/
 import Elements from './components/Elements/Elements';
 import Loader from './components/Loader/Loader';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import { isEmpty } from './helpers/objectHelpers';
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();
   const content = useSelector(getContentData);
   const error = useSelector(getContentError);
   const isFetching = useSelector(isFetchingContent);
-  const { elements = [] } = content;
+  const { elements = {} } = content;
 
   useEffect(() => {
     dispatch(fetchContent('fa9519d5-0363-4b8d-8e1f-627d802c08a8'))
@@ -28,7 +29,10 @@ export const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Elements elements={elements}/>
+      {isEmpty(elements)
+        ? <NoData text="Ooops. No data to show" />
+        : <Elements elements={elements} />
+      }
     </ErrorBoundary>
   );
 }

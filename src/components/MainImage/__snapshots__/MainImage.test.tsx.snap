@@ -5,6 +5,7 @@ exports[`<MainImager/> renders correctly 1`] = `
   <img
     alt="altText"
     class="sc-AxjAm bReqtd"
+    data-test-id="main-image"
     src="https://content-eu-4.content-cms.com/some url"
   />
 </DocumentFragment>

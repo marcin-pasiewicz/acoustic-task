@@ -46,5 +46,7 @@ export interface Content {
   lastModified: Date;
   status: string;
   tags: string[];
-  elements: Element[];
+  elements: {
+    [key: string]: Element;
+  };
 }
