@@ -1,14 +1,10 @@
-import React, { ReactElement } from 'react'
-import parse from 'html-react-parser';
+import React, { ReactElement } from "react";
+import parse from "html-react-parser";
 
 interface Props {
-  values: string[]
+  values: string[];
 }
 
-export default function Body({values}: Props): ReactElement {
-  return (
-    <div>
-      {values.map(e => parse(e))}
-    </div>
-  )
+export default function Body({ values }: Props): ReactElement {
+  return <div>{values.map((e) => parse(e))}</div>;
 }

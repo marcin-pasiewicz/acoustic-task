@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 interface State {
   hasError: boolean;
   fallbackComponent?: any;
@@ -19,15 +19,19 @@ export default class ErrorBoundary extends React.Component<Props, State> {
   }
 
   componentDidCatch(error: any, errorInfo: any) {
-    if (process.env.NODE_ENV === 'development') {
-      console.log(error, errorInfo)
+    if (process.env.NODE_ENV === "development") {
+      console.log(error, errorInfo);
     }
   }
 
   render() {
     const { fallbackComponent } = this.props;
     if (this.state.hasError) {
-      return fallbackComponent ? fallbackComponent() : <h1>Something went wrong.</h1>;
+      return fallbackComponent ? (
+        fallbackComponent()
+      ) : (
+        <h1>Something went wrong.</h1>
+      );
     }
 
     return this.props.children;

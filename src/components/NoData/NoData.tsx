@@ -1,5 +1,5 @@
-import React from 'react';
-import { NoDataWrapper } from './styled/NoDataWrapper';
+import React from "react";
+import { NoDataWrapper } from "./styled/NoDataWrapper";
 
 export interface Props {
   text?: string;
@@ -8,7 +8,12 @@ export interface Props {
 export const NoData = ({ text }: Props) => {
   return (
     <NoDataWrapper>
-      <svg width="128" height="82" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="128"
+        height="82"
+        viewBox="0 0 64 41"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g transform="translate(0 1)" fill="none" fillRule="evenodd">
           <ellipse fill="#F5F5F5" cx="32" cy="33" rx="32" ry="7"></ellipse>
           <g fillRule="nonzero" stroke="#D9D9D9">
@@ -20,7 +25,7 @@ export const NoData = ({ text }: Props) => {
           </g>
         </g>
       </svg>
-      <h4>{text ? text : 'No Data'}</h4>
+      <h4>{text ? text : "No Data"}</h4>
     </NoDataWrapper>
   );
 };
