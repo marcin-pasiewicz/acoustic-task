@@ -1,24 +1,21 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { createEpicMiddleware, combineEpics } from "redux-observable";
 import { content } from "./reducers/content";
-import { fetchContentEpic } from './epics'
+import { fetchContentEpic } from "./epics";
 import { catchError } from "rxjs/operators";
 
 declare global {
-    interface Window {
-        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
-    }
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
+  }
 }
 
-const composeEnhancers = (
-    window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-) || compose;
+const composeEnhancers =
+  (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const epicMiddleware = createEpicMiddleware();
 const rootEpic = (action$: any) =>
-  combineEpics(
-    fetchContentEpic,
-  )(action$).pipe(
+  combineEpics(fetchContentEpic)(action$).pipe(
     catchError((error: any, source: any) => {
       // eslint-disable-next-line no-console
       console.error(error);
@@ -27,19 +24,12 @@ const rootEpic = (action$: any) =>
   );
 
 function configureStore() {
-    // configure middlewares
-    const middlewares = [
-        epicMiddleware,
-    ];
-    // compose enhancers
-    const enhancer = composeEnhancers(
-        applyMiddleware(...middlewares)
-    );
-    // create store
-    return createStore(
-        content,
-        enhancer
-    );
+  // configure middlewares
+  const middlewares = [epicMiddleware];
+  // compose enhancers
+  const enhancer = composeEnhancers(applyMiddleware(...middlewares));
+  // create store
+  return createStore(content, enhancer);
 }
 
 export const store = configureStore();

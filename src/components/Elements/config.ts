@@ -1,7 +1,1 @@
-export const elementsOrder = [
-  "heading",
-  "mainImage",
-  "body",
-  "author",
-  "date",
-]
+export const elementsOrder = ["heading", "mainImage", "body", "author", "date"];

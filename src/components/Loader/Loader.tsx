@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from "react";
 
 export default function Loader(): ReactElement {
   return (
@@ -236,5 +236,5 @@ export default function Loader(): ReactElement {
         ></animate>
       </rect>
     </svg>
-  )
+  );
 }
