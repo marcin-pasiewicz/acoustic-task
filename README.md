@@ -51,7 +51,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Available Scripts
+## Docker commands
 
 You can run app with Docker using commands:  
 
