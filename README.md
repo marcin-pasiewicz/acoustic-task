@@ -73,4 +73,4 @@ When it comes to data processing the choice fell on well known and documented Re
 
 About testing, as you mentions in task I've implemented some unit and e2e tests using [WebdriverIO](https://webdriver.io/). I aware that test do not cover every case but testing is a continuous process and I think it's good enougth for first iteration.
 
-## Thank you for the opportunity, your time!
+## Thank you for the opportunity and your time!
